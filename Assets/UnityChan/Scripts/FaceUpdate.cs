@@ -27,10 +27,7 @@ public class FaceUpdate : MonoBehaviour
 	{
 		foreach (var animation in animations) {
 			if (GUILayout.Button (animation.name)) {
-                Debug.Log (animation.name);
-                if ("smile1@unitychan" == animation.name)
-                    Debug.Log ("Equals");
-				anim.CrossFade (animation.name, 0);
+          		anim.CrossFade (animation.name, 0);
 			}
 		}
 	}
@@ -47,22 +44,44 @@ public class FaceUpdate : MonoBehaviour
 		}
 
         anim.SetLayerWeight (1, 1);
+        float dominantEmotion = Mathf.Max (playerEmotions.currentAnger, playerEmotions.currentDisgust, playerEmotions.currentEyeClosure,
+                                    playerEmotions.currentSmile, playerEmotions.currentSurprise, playerEmotions.currentValence);
 
-        if (playerEmotions.currentSmile > 10) {
-            anim.CrossFade ("smile1@unitychan", 0.1f);
-        } else if (playerEmotions.currentSmile > 60) {
-            anim.CrossFade ("smile2@unitychan", 0.1f);
-        } else if (playerEmotions.currentAnger > 10) {
-            anim.CrossFade ("angry1@unitychan", 0.1f);
-        } else if (playerEmotions.currentSurprise > 5) {
+        if (dominantEmotion <= 5) {
+            anim.SetLayerWeight (1, current);
+        } else if (playerEmotions.currentSmile == dominantEmotion) {
+            if (playerEmotions.currentSmile > 60) {
+                Debug.Log ("smile2@unitychan");
+                anim.CrossFade ("smile2@unitychan", 0.1f);
+            } else {
+                Debug.Log ("smile1@unitychan");
+                anim.CrossFade ("smile1@unitychan", 0.1f);
+            }
+        } else if (playerEmotions.currentAnger == dominantEmotion) {
+            if (playerEmotions.currentAnger > 10) {
+                Debug.Log ("angry2@unitychan");
+                anim.CrossFade ("angry2@unitychan", 0.1f);
+            } else {
+                Debug.Log ("angry1@unitychan");
+                anim.CrossFade ("angry1@unitychan", 0.1f);
+            }
+        } else if (playerEmotions.currentSurprise == dominantEmotion) {
+            Debug.Log ("sap@unitychan");
             anim.CrossFade ("sap@unitychan", 0.1f);
-        } else if (playerEmotions.currentAnger > 4) {
-            anim.CrossFade ("angry1@unitychan", 0.1f);
-        } else if (playerEmotions.currentValence > 5) {
+        } else if (playerEmotions.currentDisgust == dominantEmotion) {
+            if (playerEmotions.currentDisgust > 10) {
+                Debug.Log ("disstract2@unitychan");
+                anim.CrossFade ("disstract2@unitychan", 0.1f);
+            } else {
+                Debug.Log ("disstract1@unitychan");
+                anim.CrossFade ("disstract1@unitychan", 0.1f);
+            }
+        } else if (playerEmotions.currentValence == dominantEmotion) {
+            Debug.Log ("conf@unitychan");
             anim.CrossFade ("conf@unitychan", 0.1f);
-        }else if (playerEmotions.currentEyeClosure > 20) {
+        } else {
+            Debug.Log ("eye_close@unitychan");
             anim.CrossFade ("eye_close@unitychan", 0.1f);
         }
-        else anim.SetLayerWeight (1, current);
 	}
 }
