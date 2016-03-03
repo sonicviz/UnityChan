@@ -1,6 +1,6 @@
 # UnityChan
 An emotion mimicry demonstration using Unity-Chan
-
+![Fog Screeshot](Fog.png "UnityChan Surrounded by Fog")
 To download a copy of the demo [go here](https://drive.google.com/a/affectiva.com/folderview?id=0B968NDUjJFMRY2s5Wk1abEhndWc&usp=sharing).
 
 # Unity-Chan License
