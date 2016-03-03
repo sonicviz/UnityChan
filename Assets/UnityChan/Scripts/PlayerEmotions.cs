@@ -12,13 +12,23 @@ public class PlayerEmotions : ImageResultsListener
     public float currentDisgust;
     public float currentEyeClosure;
 
+    public ParticleSystem fog;
+
     public override void onFaceFound(float timestamp, int faceId)
     {
+        fog.enableEmission = false;
         if (Debug.isDebugBuild) Debug.Log("Found the face");
     }
 
     public override void onFaceLost(float timestamp, int faceId)
     {
+        fog.enableEmission = true;
+        currentValence = 0;
+        currentAnger = 0;
+        currentSurprise = 0;
+        currentSmile = 0;
+        currentDisgust = 0;
+        currentEyeClosure = 0;
         if (Debug.isDebugBuild) Debug.Log("Lost the face");
     }
 
