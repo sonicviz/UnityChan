@@ -51,14 +51,14 @@ public class FaceUpdate : MonoBehaviour
             anim.SetLayerWeight (1, current);
         } else if (playerEmotions.currentSmile == dominantEmotion) {
             if (playerEmotions.currentSmile > 60) {
-                Debug.Log ("smile2@unitychan");
-                anim.CrossFade ("smile2@unitychan", 0.1f);
+                Debug.Log ("smile1@unitychan");
+                anim.CrossFade ("smile1@unitychan", 0.1f);
             } else {
                 Debug.Log ("smile1@unitychan");
                 anim.CrossFade ("smile1@unitychan", 0.1f);
             }
         } else if (playerEmotions.currentAnger == dominantEmotion) {
-            if (playerEmotions.currentAnger > 10) {
+            if (playerEmotions.currentAnger > 40) {
                 Debug.Log ("angry2@unitychan");
                 anim.CrossFade ("angry2@unitychan", 0.1f);
             } else {
@@ -69,12 +69,12 @@ public class FaceUpdate : MonoBehaviour
             Debug.Log ("sap@unitychan");
             anim.CrossFade ("sap@unitychan", 0.1f);
         } else if (playerEmotions.currentDisgust == dominantEmotion) {
-            if (playerEmotions.currentDisgust > 10) {
-                Debug.Log ("disstract2@unitychan");
-                anim.CrossFade ("disstract2@unitychan", 0.1f);
-            } else {
+            if (playerEmotions.currentDisgust > 50) {
                 Debug.Log ("disstract1@unitychan");
                 anim.CrossFade ("disstract1@unitychan", 0.1f);
+            } else {
+                Debug.Log ("disstract2@unitychan");
+                anim.CrossFade ("disstract2@unitychan", 0.1f);
             }
         } else if (playerEmotions.currentValence == dominantEmotion) {
             Debug.Log ("conf@unitychan");
