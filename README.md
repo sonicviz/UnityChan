@@ -1,8 +1,6 @@
 # UnityChan
 An emotion mimicry demonstration using Unity-Chan. 
 [!["UnityChan Surrounded by Fog"](Fog.png)](http://www.youtube.com/watch?v=MZCNWWyHa98 "Affectiva's Plugin for Unity Allows Game Avatar to Mirror Player's Emotions")
-
-[![Fog Screeshot](Fog.png "UnityChan Surrounded by Fog")](https://github.com/Affectiva/UnityChan)
 To download a copy of the demo [go here](https://drive.google.com/a/affectiva.com/folderview?id=0B968NDUjJFMRY2s5Wk1abEhndWc&usp=sharing).  The emotion buttons all correspond to facial expressions.  For example, if you smile she will smile.  Fog appears when there is no camera or the camera cannot find a face.
 
 # Unity-Chan License
